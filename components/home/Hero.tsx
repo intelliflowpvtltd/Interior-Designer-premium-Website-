@@ -106,7 +106,7 @@ function Hero() {
       {/* Main Content */}
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-32 pb-16"
+        className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16"
       >
         <div className="max-w-[1400px] w-full mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -117,13 +117,13 @@ function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isLoaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-6"
+                className="mb-4 sm:mb-6"
               >
-                <div className="inline-flex items-center gap-3 bg-rose-gold/10 px-4 py-2 rounded-full">
-                  <svg className="w-4 h-4 text-rose-gold" fill="currentColor" viewBox="0 0 20 20">
+                <div className="inline-flex items-center gap-2 sm:gap-3 bg-rose-gold/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-gold" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span className="text-deep-charcoal text-sm font-medium">
+                  <span className="text-deep-charcoal text-xs sm:text-sm font-medium">
                     Trusted by 500+ Premium Clients Across India
                   </span>
                 </div>
@@ -134,17 +134,17 @@ function Hero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isLoaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="font-display mb-6"
+                className="font-display mb-4 sm:mb-6"
               >
                 <span
-                  className="block text-deep-charcoal font-light leading-[1.1]"
-                  style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
+                  className="block text-deep-charcoal font-light leading-[1.15]"
+                  style={{ fontSize: 'clamp(2rem, 6vw + 0.5rem, 4.5rem)' }}
                 >
                   Transform Your Home Into a
                 </span>
                 <span
-                  className="block font-semibold leading-[1.1] mt-2 text-rose-gold"
-                  style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
+                  className="block font-semibold leading-[1.15] mt-1 sm:mt-2 text-rose-gold"
+                  style={{ fontSize: 'clamp(2rem, 6vw + 0.5rem, 4.5rem)' }}
                 >
                   Living Masterpiece
                 </span>
@@ -155,7 +155,7 @@ function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isLoaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-charcoal text-lg md:text-xl max-w-xl leading-relaxed mb-8"
+                className="text-charcoal text-base sm:text-lg md:text-xl max-w-xl leading-relaxed mb-6 sm:mb-8"
               >
                 Award-winning interior design that enhances your lifestyle, increases property value,
                 and creates spaces you'll love coming home to—every single day.
@@ -166,11 +166,11 @@ function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isLoaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex flex-wrap gap-4 mb-8"
+                className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8"
               >
                 {trustBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-charcoal">
-                    <span className="w-5 h-5 rounded-full bg-rose-gold/20 flex items-center justify-center text-rose-gold text-xs font-bold">
+                  <div key={index} className="flex items-center gap-2 text-xs sm:text-sm text-charcoal">
+                    <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-rose-gold/20 flex items-center justify-center text-rose-gold text-xs font-bold">
                       {badge.icon}
                     </span>
                     <span>{badge.text}</span>
@@ -183,11 +183,11 @@ function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isLoaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
-                <Link href="/contact">
-                  <button className="group px-8 py-4 bg-rose-gold text-white font-medium text-sm tracking-wide uppercase hover:bg-rose-gold-dark transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-rose-gold/30 transform hover:-translate-y-0.5">
-                    <span className="flex items-center justify-center gap-3">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <button className="w-full group px-6 sm:px-8 py-3.5 sm:py-4 bg-rose-gold text-white font-medium text-sm tracking-wide uppercase hover:bg-rose-gold-dark transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-rose-gold/30 transform hover:-translate-y-0.5 min-h-[48px]">
+                    <span className="flex items-center justify-center gap-2 sm:gap-3">
                       Get Free Consultation
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -195,8 +195,8 @@ function Hero() {
                     </span>
                   </button>
                 </Link>
-                <Link href="/portfolio">
-                  <button className="group px-8 py-4 border-2 border-deep-charcoal/30 text-deep-charcoal font-medium text-sm tracking-wide uppercase hover:border-rose-gold hover:text-rose-gold transition-all duration-500 shadow-md hover:shadow-xl hover:shadow-rose-gold/20 transform hover:-translate-y-0.5 bg-white">
+                <Link href="/portfolio" className="w-full sm:w-auto">
+                  <button className="w-full group px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-deep-charcoal/30 text-deep-charcoal font-medium text-sm tracking-wide uppercase hover:border-rose-gold hover:text-rose-gold transition-all duration-500 shadow-md hover:shadow-xl hover:shadow-rose-gold/20 transform hover:-translate-y-0.5 bg-white min-h-[48px]">
                     Explore Our Portfolio
                   </button>
                 </Link>
