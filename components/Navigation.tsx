@@ -32,14 +32,14 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-[#FAF9F6]/95 backdrop-blur-xl shadow-2xl border-b border-[#B76E79]/10'
-          : 'bg-gradient-to-b from-[#FAF9F6]/90 via-[#FAF9F6]/70 to-transparent backdrop-blur-md'
+        ? 'bg-[#FAF9F6]/95 backdrop-blur-xl shadow-2xl border-b border-[#B76E79]/10'
+        : 'bg-gradient-to-b from-[#FAF9F6]/90 via-[#FAF9F6]/70 to-transparent backdrop-blur-md'
         }`}
     >
       <Container>
-        <nav className="grid grid-cols-3 items-center h-16 sm:h-20 lg:h-24 py-3 sm:py-4 gap-4 sm:gap-8">
+        <nav className="grid grid-cols-2 lg:grid-cols-3 items-center h-16 sm:h-20 lg:h-24 py-3 sm:py-4 gap-4 sm:gap-8">
           {/* Logo - Left */}
-          <Link href="/" className="group flex items-center space-x-2 sm:space-x-3 justify-self-start">
+          <Link href="/" className="group flex items-center space-x-2 sm:space-x-3 justify-self-start col-span-1">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#B76E79] to-[#A05A6B] rounded-sm flex items-center justify-center shadow-lg shadow-[#B76E79]/20 group-hover:shadow-[#B76E79]/40 transition-all duration-300">
               <span className="text-[#FAF9F6] font-display font-bold text-lg sm:text-xl">L</span>
             </div>
@@ -59,7 +59,7 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Navigation Menu - Center */}
+          {/* Navigation Menu - Center (hidden on mobile) */}
           <div className="hidden lg:flex items-center justify-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -73,37 +73,40 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button - Right */}
-          <div className="hidden md:flex items-center justify-self-end">
-            <Link href="/contact">
-              <button className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#B76E79] to-[#A05A6B] text-[#FAF9F6] font-semibold text-xs sm:text-sm tracking-wide rounded-sm hover:shadow-lg hover:shadow-[#B76E79]/30 hover:scale-105 transition-all duration-300 uppercase">
-                Book Consultation
-              </button>
-            </Link>
-          </div>
+          {/* Right Column - CTA Button on desktop, Toggle on mobile */}
+          <div className="flex items-center justify-self-end col-span-1">
+            {/* CTA Button - Visible md and up */}
+            <div className="hidden md:flex items-center">
+              <Link href="/contact">
+                <button className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#B76E79] to-[#A05A6B] text-[#FAF9F6] font-semibold text-xs sm:text-sm tracking-wide rounded-sm hover:shadow-lg hover:shadow-[#B76E79]/30 hover:scale-105 transition-all duration-300 uppercase">
+                  Book Consultation
+                </button>
+              </Link>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden justify-self-end text-[#2C3E50] p-2 sm:p-3 hover:bg-[#B76E79]/10 rounded-sm transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            {/* Mobile Menu Button - Visible below md */}
+            <button
+              className="md:hidden text-[#2C3E50] p-2 sm:p-3 hover:bg-[#B76E79]/10 rounded-sm transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </nav>
       </Container>
 
