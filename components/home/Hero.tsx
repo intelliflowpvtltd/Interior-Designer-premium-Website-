@@ -72,7 +72,7 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-off-white">
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-off-white pt-20 sm:pt-24 lg:pt-28">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 subtle-pattern" />
 
@@ -81,7 +81,7 @@ function Hero() {
         {/* LEFT SIDE - Premium Content */}
         <motion.div
           style={{ opacity }}
-          className="relative flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 pt-32 sm:pt-36 lg:pt-40 pb-24 bg-gradient-to-br from-off-white via-cream to-off-white"
+          className="relative flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-24 lg:py-32 bg-gradient-to-br from-off-white via-cream to-off-white"
         >
           {/* Decorative Left Border */}
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-rose-gold to-transparent" />
