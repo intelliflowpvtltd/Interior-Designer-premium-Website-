@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const luxuryInteriors = [
   {
@@ -71,21 +72,26 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-off-white">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 subtle-pattern" />
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#FAF9F6] via-[#F8F6F3] to-[#FAF9F6]">
+      {/* Elegant Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(183, 110, 121, 0.03) 1px, transparent 0)`,
+          backgroundSize: '48px 48px'
+        }} />
+      </div>
 
-      {/* Background Image with Overlay */}
+      {/* Background Image with Sophisticated Overlay */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
           {luxuryInteriors.map((interior, index) => (
             currentImage === index && (
               <motion.div
                 key={interior.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
                 <img
@@ -98,235 +104,250 @@ function Hero() {
           ))}
         </AnimatePresence>
 
-        {/* Clean Light Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-off-white via-off-white/95 to-off-white/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-off-white/50 via-transparent to-off-white" />
+        {/* Premium Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/98 to-[#FAF9F6]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/60 via-transparent to-[#FAF9F6]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent" />
       </div>
 
       {/* Main Content */}
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16"
+        className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20"
       >
-        <div className="max-w-[1400px] w-full mx-auto">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column - Main Content */}
-            <div className="lg:col-span-7">
-              {/* Trust Badge with Social Proof */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-4 sm:mb-6"
-              >
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-rose-gold/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <span className="text-deep-charcoal text-xs sm:text-sm font-medium">
-                    Trusted by 500+ Premium Clients Across India
-                  </span>
-                </div>
-              </motion.div>
+        <div className="max-w-[1600px] w-full mx-auto">
+          {/* Centered Premium Layout */}
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Ornamental Top Divider */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="mb-6 sm:mb-8 flex justify-center"
+            >
+              <div className="flex items-center gap-4">
+                <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent via-rose-gold to-rose-gold" />
+                <div className="w-2 h-2 rotate-45 border border-rose-gold" />
+                <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent via-rose-gold to-rose-gold" />
+              </div>
+            </motion.div>
 
-              {/* Main Headline - Psychological Trigger: Aspiration + Exclusivity */}
-              <motion.h1
-                initial={{ opacity: 0, y: 40 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="font-display mb-4 sm:mb-6"
-              >
-                <span
-                  className="block text-deep-charcoal font-light leading-[1.15]"
-                  style={{ fontSize: 'clamp(2rem, 6vw + 0.5rem, 4.5rem)' }}
-                >
-                  Transform Your Home Into a
-                </span>
-                <span
-                  className="block font-semibold leading-[1.15] mt-1 sm:mt-2 text-rose-gold"
-                  style={{ fontSize: 'clamp(2rem, 6vw + 0.5rem, 4.5rem)' }}
-                >
-                  Living Masterpiece
-                </span>
-              </motion.h1>
-
-              {/* Value Proposition - Clear Benefits */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-charcoal text-base sm:text-lg md:text-xl max-w-xl leading-relaxed mb-6 sm:mb-8"
-              >
-                Award-winning interior design that enhances your lifestyle, increases property value,
-                and creates spaces you'll love coming home to—every single day.
-              </motion.p>
-
-              {/* Trust Badges - Psychological Trigger: Authority + Credibility */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8"
-              >
-                {trustBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center gap-2 text-xs sm:text-sm text-charcoal">
-                    <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-rose-gold/20 flex items-center justify-center text-rose-gold text-xs font-bold">
-                      {badge.icon}
-                    </span>
-                    <span>{badge.text}</span>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* CTA Buttons - Psychological Trigger: Urgency + Choice */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-              >
-                <Link href="/contact" className="w-full sm:w-auto">
-                  <button className="w-full group px-6 sm:px-8 py-3.5 sm:py-4 bg-rose-gold text-white font-medium text-sm tracking-wide uppercase hover:bg-rose-gold-dark transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-rose-gold/30 transform hover:-translate-y-0.5 min-h-[48px]">
-                    <span className="flex items-center justify-center gap-2 sm:gap-3">
-                      Get Free Consultation
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </button>
-                </Link>
-                <Link href="/portfolio" className="w-full sm:w-auto">
-                  <button className="w-full group px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-deep-charcoal/30 text-deep-charcoal font-medium text-sm tracking-wide uppercase hover:border-rose-gold hover:text-rose-gold transition-all duration-500 shadow-md hover:shadow-xl hover:shadow-rose-gold/20 transform hover:-translate-y-0.5 bg-white min-h-[48px]">
-                    Explore Our Portfolio
-                  </button>
-                </Link>
-              </motion.div>
-
-              {/* Guarantee - Psychological Trigger: Risk Reversal */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={isLoaded ? { opacity: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="mt-6 text-sm text-warm-gray flex items-center gap-2"
-              >
-                <svg className="w-4 h-4 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            {/* Premium Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mb-6 sm:mb-8"
+            >
+              <div className="inline-flex items-center gap-3 border border-rose-gold/30 px-6 py-2.5 bg-white/60 backdrop-blur-sm">
+                <svg className="w-5 h-5 text-rose-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                No obligation consultation • 100% satisfaction guaranteed
-              </motion.p>
-            </div>
+                <span className="text-deep-charcoal text-sm font-medium tracking-wide">
+                  Award-Winning Interior Design Studio
+                </span>
+              </div>
+            </motion.div>
 
-            {/* Right Column - Featured Project Card */}
-            <div className="lg:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={isLoaded ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="bg-white p-6 border border-soft-gray shadow-xl hover:shadow-2xl transition-all duration-500 group"
-              >
-                <p className="text-rose-gold text-xs uppercase tracking-[0.2em] mb-4 font-medium">
-                  Featured Project
-                </p>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentImage}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <h3 className="text-2xl font-display font-semibold text-deep-charcoal mb-2 group-hover:text-rose-gold transition-colors duration-500">
-                      {luxuryInteriors[currentImage].title}
-                    </h3>
-                    <p className="text-warm-gray text-sm mb-4 flex items-center gap-2">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      </svg>
-                      {luxuryInteriors[currentImage].location} • {luxuryInteriors[currentImage].year}
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 py-4 border-t border-soft-gray">
-                      <div>
-                        <div className="text-rose-gold text-xl font-display font-semibold">
-                          {luxuryInteriors[currentImage].sqft}
-                        </div>
-                        <div className="text-warm-gray text-xs uppercase tracking-wider">Area</div>
-                      </div>
-                      <div>
-                        <div className="text-rose-gold text-xl font-display font-semibold">
-                          {luxuryInteriors[currentImage].style}
-                        </div>
-                        <div className="text-warm-gray text-xs uppercase tracking-wider">Style</div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+            {/* Premium Headline with Classic Typography */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1.2, delay: 0.4 }}
+              className="mb-6 sm:mb-8"
+            >
+              <h1 className="font-display mb-4">
+                <span className="block text-[#6B7B8A] text-sm sm:text-base uppercase tracking-[0.3em] font-normal mb-3 sm:mb-4">
+                  Elevate Your Space
+                </span>
+                <span
+                  className="block text-deep-charcoal font-light leading-[1.1] tracking-tight"
+                  style={{ fontSize: 'clamp(2.5rem, 7vw + 0.5rem, 5.5rem)' }}
+                >
+                  Timeless Elegance,
+                </span>
+                <span
+                  className="block font-medium leading-[1.1] mt-2 sm:mt-3 bg-gradient-to-r from-rose-gold via-[#C97D87] to-rose-gold bg-clip-text text-transparent tracking-tight"
+                  style={{ fontSize: 'clamp(2.5rem, 7vw + 0.5rem, 5.5rem)' }}
+                >
+                  Masterfully Crafted
+                </span>
+              </h1>
+            </motion.div>
 
-                {/* Navigation Dots */}
-                <div className="flex gap-2 mt-4">
-                  {luxuryInteriors.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${currentImage === index
-                        ? 'bg-rose-gold w-8'
-                        : 'bg-soft-gray w-1.5 hover:bg-rose-gold-light'
-                        }`}
-                      aria-label={`View ${luxuryInteriors[index].title}`}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+            {/* Ornamental Divider */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={isLoaded ? { opacity: 1, scaleX: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex justify-center mb-6 sm:mb-8"
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-[1px] w-8 bg-rose-gold/50" />
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-gold" />
+                <div className="h-[1px] w-20 bg-rose-gold" />
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-gold" />
+                <div className="h-[1px] w-8 bg-rose-gold/50" />
+              </div>
+            </motion.div>
+
+            {/* Refined Value Proposition */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-[#2C3E50] text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 font-light"
+              style={{ fontFamily: '"Cormorant Garamond", serif' }}
+            >
+              Where refined aesthetics meet timeless sophistication.
+              <span className="block mt-2 text-base sm:text-lg text-[#6B7B8A]">
+                Curating bespoke interiors that transcend trends and elevate your everyday living experience.
+              </span>
+            </motion.p>
+
+            {/* Elegant Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-10 sm:mb-12"
+            >
+              {trustBadges.map((badge, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
+                  className="flex items-center gap-2.5 text-sm text-[#2C3E50] group cursor-default"
+                >
+                  <span className="w-6 h-6 border border-rose-gold flex items-center justify-center text-rose-gold text-xs font-semibold group-hover:bg-rose-gold group-hover:text-white transition-all duration-300">
+                    {badge.icon}
+                  </span>
+                  <span className="group-hover:text-rose-gold transition-colors duration-300">{badge.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Premium CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center"
+            >
+              <Link href="/contact">
+                <button className="group relative px-10 sm:px-12 py-4 sm:py-5 bg-rose-gold text-white font-medium text-sm tracking-[0.15em] uppercase overflow-hidden transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-rose-gold/40 border border-rose-gold min-h-[56px] min-w-[240px]">
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    Schedule Consultation
+                    <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#A05A6B] to-rose-gold-dark opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </button>
+              </Link>
+              <Link href="/portfolio">
+                <button className="group px-10 sm:px-12 py-4 sm:py-5 border-2 border-[#2C3E50]/20 text-[#2C3E50] font-medium text-sm tracking-[0.15em] uppercase hover:border-rose-gold hover:text-rose-gold transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-rose-gold/20 bg-white/80 backdrop-blur-sm min-h-[56px] min-w-[240px]">
+                  View Our Portfolio
+                </button>
+              </Link>
+            </motion.div>
+
+            {/* Elegant Guarantee Statement */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 1.3 }}
+              className="mt-8 sm:mt-10"
+            >
+              <div className="inline-flex items-center gap-3 text-sm text-[#6B7B8A] border-t border-b border-soft-gray/50 py-3 px-6">
+                <svg className="w-5 h-5 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span>Complimentary Consultation • Satisfaction Guaranteed</span>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Stats Bar - Social Proof Numbers */}
+
+          {/* Premium Stats Section with Ornamental Frame */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            className="mt-20"
+            transition={{ duration: 0.8, delay: 1.5 }}
+            className="mt-16 sm:mt-24 max-w-6xl mx-auto"
           >
-            <div className="bg-white/90 backdrop-blur-md border border-soft-gray p-8 shadow-2xl hover:shadow-rose-gold/10 transition-all duration-700">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
-                    className="text-center group/stat cursor-default"
-                  >
-                    <div className="text-3xl md:text-4xl font-display font-semibold text-rose-gold mb-2 group-hover/stat:scale-110 transition-all duration-500 drop-shadow-sm group-hover/stat:drop-shadow-lg">
-                      {stat.value}
-                    </div>
-                    <div className="text-deep-charcoal text-sm font-medium mb-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-warm-gray text-xs">
-                      {stat.sublabel}
-                    </div>
-                  </motion.div>
-                ))}
+            {/* Ornamental Top Border */}
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center gap-4">
+                <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-rose-gold" />
+                <div className="w-2 h-2 rotate-45 border border-rose-gold" />
+                <div className="text-[10px] text-rose-gold tracking-[0.3em] uppercase">Our Legacy</div>
+                <div className="w-2 h-2 rotate-45 border border-rose-gold" />
+                <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-rose-gold" />
+              </div>
+            </div>
+
+            <div className="relative">
+              {/* Corner Ornaments */}
+              <div className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-rose-gold/40" />
+              <div className="absolute -top-3 -right-3 w-6 h-6 border-r-2 border-t-2 border-rose-gold/40" />
+              <div className="absolute -bottom-3 -left-3 w-6 h-6 border-l-2 border-b-2 border-rose-gold/40" />
+              <div className="absolute -bottom-3 -right-3 w-6 h-6 border-r-2 border-b-2 border-rose-gold/40" />
+
+              <div className="bg-white/95 backdrop-blur-xl border-2 border-soft-gray/50 p-10 sm:p-12 shadow-2xl">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 1.7 + index * 0.1 }}
+                      className="text-center group/stat cursor-default relative"
+                    >
+                      {/* Vertical Divider (except last item) */}
+                      {index < stats.length - 1 && (
+                        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-20 w-[1px] bg-gradient-to-b from-transparent via-soft-gray to-transparent" />
+                      )}
+                      
+                      <div className="text-4xl md:text-5xl font-display font-light text-rose-gold mb-3 group-hover/stat:scale-105 transition-all duration-500">
+                        {stat.value}
+                      </div>
+                      <div className="h-[1px] w-12 bg-rose-gold/30 mx-auto mb-3" />
+                      <div className="text-deep-charcoal text-sm font-semibold mb-1 uppercase tracking-wider">
+                        {stat.label}
+                      </div>
+                      <div className="text-warm-gray text-xs tracking-wide">
+                        {stat.sublabel}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Elegant Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isLoaded ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
       >
-        <div className="flex flex-col items-center gap-3 text-warm-gray hover:text-rose-gold transition-all duration-500 cursor-pointer group">
-          <span className="text-[10px] uppercase tracking-[0.3em] group-hover:tracking-[0.4em] transition-all duration-300">Scroll to Explore</span>
+        <div className="flex flex-col items-center gap-4 text-warm-gray hover:text-rose-gold transition-all duration-500 cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="h-[1px] w-8 bg-current opacity-50" />
+            <span className="text-[9px] uppercase tracking-[0.4em] font-medium">Discover More</span>
+            <div className="h-[1px] w-8 bg-current opacity-50" />
+          </div>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="border border-current rounded-full p-2"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>
