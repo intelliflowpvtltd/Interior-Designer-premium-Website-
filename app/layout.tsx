@@ -1,40 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://luxeinteriors.com'),
+  metadataBase: new URL('https://treatinterio.com'),
   title: {
-    default: "Luxe Interiors - Ultra-Premium Interior Design in India",
-    template: "%s | Luxe Interiors"
+    default: "Treat Interio - Elevate Your Space | Premium Interior Design",
+    template: "%s | Treat Interio"
   },
-  description: "India's premier luxury interior design firm. Crafting timeless spaces that elevate daily life for discerning clients across Mumbai, Bangalore, Delhi, and beyond.",
-  keywords: ["luxury interior design India", "premium interiors Mumbai", "luxury home design Bangalore", "bespoke interiors Delhi", "high-end interior designer", "luxury villa design", "commercial interior design"],
-  authors: [{ name: "Luxe Interiors" }],
+  description: "Treat Interio - Premium interior design firm elevating spaces across India. Crafting timeless, personalized interiors for discerning clients in Mumbai, Bangalore, Delhi, and beyond.",
+  keywords: ["luxury interior design India", "premium interiors Mumbai", "luxury home design Bangalore", "bespoke interiors Delhi", "high-end interior designer", "luxury villa design", "commercial interior design", "treat interio", "elevate your space"],
+  authors: [{ name: "Treat Interio" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://luxeinteriors.com",
-    siteName: "Luxe Interiors",
-    title: "Luxe Interiors - Ultra-Premium Interior Design in India",
-    description: "India's premier luxury interior design firm crafting timeless spaces.",
+    url: "https://treatinterio.com",
+    siteName: "Treat Interio",
+    title: "Treat Interio - Elevate Your Space | Premium Interior Design",
+    description: "Premium interior design firm elevating spaces across India with timeless, personalized designs.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luxe Interiors - Ultra-Premium Interior Design",
-    description: "India's premier luxury interior design firm crafting timeless spaces.",
+    title: "Treat Interio - Elevate Your Space",
+    description: "Premium interior design firm elevating spaces across India with timeless, personalized designs.",
   },
   robots: {
     index: true,

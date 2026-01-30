@@ -53,12 +53,29 @@ function ContactPage() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    console.log('Form submitted:', data);
-    setSubmitSuccess(true);
-    setIsSubmitting(false);
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+      } else {
+        console.error('Form submission failed:', result.error);
+        alert('Failed to submit form. Please try again or call us directly.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 4));
@@ -332,10 +349,10 @@ function ContactPage() {
                     </div>
 
                     <div className="bg-cream p-4 border border-soft-gray">
-                      <p className="text-sm text-charcoal">
-                        By submitting this form, you agree to be contacted by Luxe Interiors regarding
+                      <span className="text-sm text-charcoal">
+                        By submitting this form, you agree to be contacted by Treat Interio regarding
                         your project inquiry. We respect your privacy and will never share your information.
-                      </p>
+                      </span>
                     </div>
                   </motion.div>
                 )}

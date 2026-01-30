@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from './ui/Container';
 import Button from './ui/Button';
@@ -40,23 +41,14 @@ export default function Navigation() {
         <nav className="grid grid-cols-2 lg:grid-cols-3 items-center h-16 sm:h-20 lg:h-24 py-3 sm:py-4 gap-4 sm:gap-8">
           {/* Logo - Left */}
           <Link href="/" className="group flex items-center space-x-2 sm:space-x-3 justify-self-start col-span-1">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#B76E79] to-[#A05A6B] rounded-sm flex items-center justify-center shadow-lg shadow-[#B76E79]/20 group-hover:shadow-[#B76E79]/40 transition-all duration-300">
-              <span className="text-[#FAF9F6] font-display font-bold text-lg sm:text-xl">L</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-xl sm:text-2xl font-display font-semibold text-[#2C3E50] tracking-tight group-hover:text-[#B76E79] transition-colors duration-300">
-                Luxe Interiors
-              </div>
-              <div className="text-[10px] text-[#B76E79]/70 uppercase tracking-[0.2em] font-medium">
-                Ultra Premium Design
-              </div>
-            </div>
-            {/* Mobile Logo Text */}
-            <div className="sm:hidden">
-              <div className="text-lg font-display font-semibold text-[#2C3E50] tracking-tight">
-                Luxe
-              </div>
-            </div>
+            <Image 
+              src="/logo.png" 
+              alt="Treat Interio - Elevate Your Space" 
+              width={200}
+              height={64}
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              priority
+            />
           </Link>
 
           {/* Navigation Menu - Center (hidden on mobile) */}

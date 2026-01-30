@@ -1,6 +1,6 @@
-# Luxe Interiors - Ultra-Premium Interior Design Website
+# Treat Interio - Elevate Your Space
 
-A modern, high-performance website for India's premier luxury interior design firm, built with Next.js 14+, TypeScript, and Tailwind CSS.
+A modern, high-performance website for Treat Interio, a premium interior design firm elevating spaces across India. Built with Next.js 16+, TypeScript, and Tailwind CSS.
 
 ## 🌟 Features
 
@@ -93,12 +93,12 @@ website/
 
 ### Colors
 ```css
---royal-blue: #0A1628      /* Primary - Navigation, headings */
---champagne-gold: #D4AF37  /* Accent - Highlights, CTAs */
---ivory-white: #FFFFF0     /* Background */
---burgundy: #800020        /* Selective emphasis */
---charcoal: #36454F        /* Body text */
---pearl-gray: #E8E8E8      /* Borders, dividers */
+--rose-gold: #B76E79       /* Primary - Accent, CTAs */
+--off-white: #FAF9F6       /* Background */
+--deep-charcoal: #2C3E50   /* Text, headers */
+--cream: #F8F6F3           /* Alt background */
+--warm-gray: #6B7B8A       /* Secondary text */
+--soft-gray: #E8E6E3       /* Borders, dividers */
 ```
 
 ### Typography
@@ -187,13 +187,14 @@ Based on PRD specifications:
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14.1.4
+- **Framework**: Next.js 16.1.4
+- **React**: 19.2.3
 - **Language**: TypeScript 5.x
-- **Styling**: Tailwind CSS 3.x
-- **Animations**: Framer Motion 11.x
-- **Forms**: React Hook Form 7.x
+- **Styling**: Tailwind CSS 3.4.19
+- **Animations**: Framer Motion 12.29.0
+- **Forms**: React Hook Form 7.71.1
 - **Icons**: Heroicons (via inline SVG)
-- **Fonts**: Google Fonts (Playfair Display, Inter)
+- **Fonts**: Google Fonts (Playfair Display, Inter, Cormorant Garamond)
 
 ## 📝 Development Notes
 
@@ -218,14 +219,14 @@ For content management, integrate Sanity.io:
 
 ## 📄 License
 
-Proprietary - Luxe Interiors
+Proprietary - Treat Interio
 
 ## 🤝 Support
 
 For technical support or questions:
-- Email: tech@luxeinteriors.com
-- Documentation: [Internal Wiki]
+- Email: info@treatinterio.com
+- Website: https://treatinterio.com
 
 ---
 
-Built with ❤️ for discerning clients who demand excellence.
+Built with ❤️ by Treat Interio - Elevate Your Space

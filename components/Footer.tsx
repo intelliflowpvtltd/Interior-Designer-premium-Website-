@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from './ui/Container';
 
 const footerLinks = {
@@ -45,9 +46,13 @@ export default function Footer() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-display font-semibold text-[#D4AF37] mb-4">
-              Luxe Interiors
-            </h3>
+            <Image 
+              src="/logo.png" 
+              alt="Treat Interio" 
+              width={200}
+              height={64}
+              className="h-16 w-auto object-contain mb-4 brightness-0 invert opacity-90"
+            />
             <p className="text-[#FFFFF0]/80 mb-6 max-w-md">
               Crafting environments that elevate daily life, reflect personal narrative, 
               and become the backdrop for your most meaningful moments.
@@ -132,7 +137,7 @@ export default function Footer() {
 
         <div className="border-t border-[#FFFFF0]/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-[#FFFFF0]/60 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Luxe Interiors. All rights reserved.
+            © {new Date().getFullYear()} Treat Interio. All rights reserved.
           </p>
           <div className="flex space-x-6">
             {footerLinks.legal.map((link) => (
